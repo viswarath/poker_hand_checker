@@ -1,0 +1,13 @@
+#include <stdbool.h>
+
+#define NUM_CARDS 5
+#define CARD_FORMAT_WIDTH 2
+
+void print_hand(void);
+bool validate_card(char card[static CARD_FORMAT_WIDTH]);
+void read_hand(void);
+void analyze_hand(void);
+
+extern bool history[13][4];
+extern char hand[NUM_CARDS][CARD_FORMAT_WIDTH];
+extern bool straight, flush, three, pair, high_card;
