@@ -38,23 +38,18 @@
  */
 
 // include statements here
-#include <stdio.h>
-#include <stdbool.h>
 #include "poker_hand_helper.h"
 
-// define statements here, all in poker_hand_helper though tbh
+// define statements here, all in poker_hand_helper.h
 
-// typedefs here
+// typedefs in .h
 
-// global variable declarations here
-extern char hand[NUM_CARDS][CARD_FORMAT_WIDTH];
-extern bool straight, flush, three, pair, high_card;
-extern bool history[13][4];
+// global variable declarations in .h
 
 // func prototypes
 void print_hand(void);
 void analyze_hand(void);
-void read_hand(void);
+int read_hand(void);
 
 int main(void)
 {

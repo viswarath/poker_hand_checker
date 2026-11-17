@@ -3,10 +3,31 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+/*
+ *  array of cards, represented by chars.
+ *  the default CARD_FORMAT_WIDTH is two, and so the array may look like:
+ *  ["4h", "ad", "10s", "Kc", "2s"]
+ */
 char hand[NUM_CARDS][CARD_FORMAT_WIDTH];
+
+/*
+ *  series of booleans that represent the rank of the hand the user has
+ */
 bool straight = false, flush = false, three = false, pair = false, high_card = false;
+
+/*
+ *  2D matrix representing which cards have already been dealt
+ *  rows are ranks, row 0 is an ace, ..., row 12 is a king
+ *  columns are suits, col 0 is diamond, 1 is clubs, 2 is hearts, and 3 is spade
+ */
 bool history[13][4] = {false};
 
+
+// function prototypes for fully internally used functions
+void add_card_to_history(char card[static CARD_FORMAT_WIDTH]);
+int suit_to_int(char card[static CARD_FORMAT_WIDTH]);
+int rank_to_int(char card[static CARD_FORMAT_WIDTH]);
+bool validate_card(char card[static CARD_FORMAT_WIDTH]); // testing problem with this and read hand!
 
 /*
  *  returns integer representation of suit of card
@@ -36,11 +57,11 @@ int suit_to_int(char card[static CARD_FORMAT_WIDTH])
 
 
 /*
- *  returns integer representation of rank of card
+ *  returns integer representation of the rank of the inputted card
  *  A, 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K returns 0 to 12
  *  anything else returns -1
  */
-int rank_to_int(char card[static 2])
+int rank_to_int(char card[static CARD_FORMAT_WIDTH])
 {
     char rank = (char) toupper((int) card[0]);
 
@@ -127,6 +148,9 @@ bool validate_card(char card[static CARD_FORMAT_WIDTH])
         return false;
     }
 
+    // add to history
+    add_card_to_history(card);
+
     return true;
 }
 
@@ -145,6 +169,30 @@ void add_card_to_history(char card[static CARD_FORMAT_WIDTH])
 void analyze_hand(void);
 
 
-void read_hand(void);
+int read_hand(void)
+{
+    // ask user for cards, and validate each card. If card fails validation, ask user again
+    char card[CARD_FORMAT_WIDTH];
+    
+    int i = 0;
+    // could use for loop, want to practice do loop
+    do
+    {
+        printf("please input your card (%d characters): \n", CARD_FORMAT_WIDTH);
+        // not compatible with other widths
+        scanf(" %c", &card[0]);
+        scanf(" %c", &card[1]); // try card + 1
+        
+        if (validate_card(card))
+        {
+            i++;
+        } else
+        {
+            printf("Please try again\n");
+        }
+    } while (i < NUM_CARDS);
+
+    return 0;
+}
 
 
