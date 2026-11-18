@@ -48,7 +48,7 @@
 
 // func prototypes
 void print_hand(void);
-void analyze_hand(void);
+int analyze_hand(void);
 int read_hand(void);
 
 int main(void)

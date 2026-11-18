@@ -1,9 +1,11 @@
 #include "poker_hand_helper.h"
 
 char hand[NUM_CARDS][CARD_FORMAT_WIDTH] = {{'5','c'}, {'T','h'}, {'9','c'}, {'Q','d'}, {'A','s'}};
+extern bool history[NUM_RANK][NUM_SUIT]; 
 
 int test_validate_card(void);
 int test_read_hand(void);
+int test_analyze_hand(void);
 
 int main(void)
 {
@@ -14,7 +16,10 @@ int main(void)
     // test_validate_card();
 
     // testing reading a hand
+    // issue, user inputs 2d3d4d5d6d
     test_read_hand();
+
+    test_analyze_hand();
 }
 
 // needs error messages, and some way to be sure about loop execution time too
@@ -46,5 +51,13 @@ int test_validate_card(void)
 
 int test_read_hand(void)
 {
-    return read_hand();
+    read_hand();
+    print_hand();
+    return 0;
+}
+
+int test_analyze_hand(void)
+{
+    analyze_hand();
+    return 0;
 }
