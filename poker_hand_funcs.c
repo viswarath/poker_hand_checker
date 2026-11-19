@@ -237,6 +237,12 @@ int analyze_hand(void)
                 consecutive = 0;
                 break;
         }
+            
+        // hard coded A, 2, 3, 4, 5
+        if (consecutive == 4 && i == 3 && num_in_rank[12])
+        {
+            straight = true;
+        }
 
         if (consecutive == 5)
         {
