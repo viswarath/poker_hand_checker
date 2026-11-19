@@ -1,7 +1,6 @@
 #include "poker_hand_helper.h"
 
 char hand[NUM_CARDS][CARD_FORMAT_WIDTH] = {{'5','c'}, {'T','h'}, {'9','c'}, {'Q','d'}, {'A','s'}};
-extern bool history[NUM_RANK][NUM_SUIT]; 
 
 int test_validate_card(void);
 int test_read_hand(void);

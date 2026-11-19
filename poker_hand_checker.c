@@ -1,50 +1,10 @@
 /*
- *  This program will check user inputted poker hands and print out what type of hand it qualifies as
- *
- *  Functions needed:
- *
- *  void read_hand(void);
- *  take in user input and verify inputted poker cards, storing the hand
- *      - no dupes, cards will be represented like "4c", "Th", ...
- *          - suits: c, h, s, d
- *          - ranks: A, 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K
- *      - if user input fails, print why and try accepting user input again
- *      - case insensitive
- *  
- *  void analyze_hand(void);
- *  check the hand for poker qualifications:
- *      straight flush
- *      flush
- *      four of a kind
- *      full house
- *      three of a kind
- *      pairs
- *      high card
- *
- *      return the highest qualification the hand has
- *
- *  void print_hand(void);
- *  print user cards
- *      - print with the same format as above
- *
- *  main func
- *      ask for hand
- *      return qualifications
- *      repeat if user wants
- *
- *  global vars needed
- *      array of cards in hand
- *      bools for each qualification (straight, flush, full house, three...)
+ * This program reads a poker hand from user input,
+ * returning the poker class of the hand
  */
 
 // include statements here
 #include "poker_hand_helper.h"
-
-// define statements here, all in poker_hand_helper.h
-
-// typedefs in .h
-
-// global variable declarations in .h
 
 // func prototypes
 void print_hand(void);
@@ -53,6 +13,9 @@ int read_hand(void);
 
 int main(void)
 {
+    read_hand();
+    print_hand();
+    analyze_hand();
     return 0;
 }
 

@@ -320,9 +320,9 @@ int read_hand(void)
     
     int i = 0;
     // could use for loop, want to practice do loop
+    printf("please input your cards (%d characters per card): \n", CARD_FORMAT_WIDTH);
     do
     {
-        printf("please input your card (%d characters): \n", CARD_FORMAT_WIDTH);
         // not compatible with other widths
         scanf(" %c", &card[0]);
         scanf(" %c", &card[1]); // try card + 1
