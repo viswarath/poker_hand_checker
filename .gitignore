@@ -3,4 +3,5 @@
 !.gitignore
 !*.[ch]
 !makefile
-docs
+build
+latek_files
