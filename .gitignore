@@ -1,7 +1,9 @@
 *
 !*/
-!.gitignore
+!docs
+!*.pdf
 !*.[ch]
 !makefile
+!.gitignore
 build
 latek_files
